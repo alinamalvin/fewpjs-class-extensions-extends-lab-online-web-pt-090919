@@ -1,17 +1,36 @@
 class Polygon {
-  constructor(array) {
-    this.array = array;
-  }
- 
-  get countSides() {
-    return this.length
-  }
-  
-  get perimeter() {
-  return this.reduce(array, i)
+     constructor(array) {
+          this.array = array
+     }
+
+     get countSides() {
+          return this.array.length
+     }
+
+     get perimeter() {
+          return this.array.reduce(getPer)
+
+          function getPer(total, num) {
+               return total + num
+          }
+     }
 }
 
+class Triangle extends Polygon {
+     get isValid() {
+          return this.countSides === 3 && this.perimeter % 3 === 0
+     }
+}
 
-  class Traingle extends Polygon {
+class Square extends Polygon {
+     get isValid() {
+          return this.countSides === 4 && this.perimeter % 4 === 0
+     }
+
+     get area() {
+          let length = this.perimeter / 4
+          let width = length
+          return length * width
+     }
 }
 
